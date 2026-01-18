@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjehbwm3vxd2q"
-path="res://.godot/imported/landing_pad.svg-19fffafcc024c5b2dd3ec2cb102cb50a.ctex"
+uid="uid://lxxf6xcjvhkm"
+path="res://.godot/imported/terrain_tile.svg-760af28d2be343fc312993c2c529f949.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholders/landing_pad.svg"
-dest_files=["res://.godot/imported/landing_pad.svg-19fffafcc024c5b2dd3ec2cb102cb50a.ctex"]
+source_file="res://assets/sprites/placeholders/terrain_tile.svg"
+dest_files=["res://.godot/imported/terrain_tile.svg-760af28d2be343fc312993c2c529f949.ctex"]
 
 [params]
 

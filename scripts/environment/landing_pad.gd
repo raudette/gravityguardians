@@ -84,19 +84,19 @@ func check_safe_landing(ship: Ship) -> bool:
 		return false
 	
 	# Check velocity (must be slow)
-	var velocity_magnitude := ship.linear_velocity.length()
+	var velocity_magnitude: float = ship.linear_velocity.length()
 	if velocity_magnitude > safe_landing_velocity:
 		return false
 	
 	# Check orientation (must be upright within tolerance)
-	var angle_degrees := rad_to_deg(ship.rotation)
+	var angle_degrees: float = rad_to_deg(ship.rotation)
 	# Normalize angle to -180 to 180
 	while angle_degrees > 180:
 		angle_degrees -= 360
 	while angle_degrees < -180:
 		angle_degrees += 360
 	
-	var angle_from_upright := abs(angle_degrees)
+	var angle_from_upright: float = abs(angle_degrees)
 	if angle_from_upright > safe_landing_angle:
 		return false
 	

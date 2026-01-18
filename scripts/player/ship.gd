@@ -11,7 +11,7 @@ signal ship_destroyed(victim_id: int, killer_id: int)
 
 # Export variables
 @export var player_id: int = 1  # 1 or 2
-@export var thrust_force: float = 500.0
+@export var thrust_force: float = 1500.0
 @export var rotation_speed: float = 180.0  # degrees per second
 @export var max_fuel: float = 100.0
 @export var fuel_consumption_rate: float = 10.0  # per second
