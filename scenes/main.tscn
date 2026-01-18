@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4yn86rl4nlwo"]
+[gd_scene load_steps=4 format=3 uid="uid://4yn86rl4nlwo"]
 
 [ext_resource type="PackedScene" uid="uid://b4xvn1e6wh8fy" path="res://scenes/player/ship.tscn" id="1_qy7ex"]
 [ext_resource type="PackedScene" uid="uid://c5d2lvup8hc4q" path="res://scenes/environment/landing_pad.tscn" id="2_5wf8h"]
+[ext_resource type="PackedScene" uid="uid://cj5m8vyn4xr1i" path="res://scenes/ui/hud.tscn" id="3_hud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
 size = Vector2(2000, 50)
@@ -84,3 +85,5 @@ position = Vector2(200, 600)
 [node name="Ship2" parent="Players" instance=ExtResource("1_qy7ex")]
 position = Vector2(1080, 600)
 player_id = 2
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]

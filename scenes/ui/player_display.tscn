@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq8m5yvn3xr0h"]
+
+[ext_resource type="Script" path="res://scripts/ui/player_display.gd" id="1_player_display"]
+
+[node name="PlayerDisplay" type="HBoxContainer"]
+offset_right = 300.0
+offset_bottom = 60.0
+script = ExtResource("1_player_display")
+
+[node name="ScoreLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "P1: 0/5"
+vertical_alignment = 1
+
+[node name="FuelContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="FuelLabel" type="Label" parent="FuelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Fuel"
+horizontal_alignment = 1
+
+[node name="FuelBar" type="ProgressBar" parent="FuelContainer"]
+custom_minimum_size = Vector2(180, 25)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
