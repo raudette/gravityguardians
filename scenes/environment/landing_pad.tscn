@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5d2lvup8hc4q"]
+
+[ext_resource type="Script" path="res://scripts/environment/landing_pad.gd" id="1_5x2we"]
+[ext_resource type="Texture2D" uid="uid://cjehbwm3vxd2q" path="res://assets/sprites/placeholders/landing_pad.svg" id="2_hxr3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3ler"]
+size = Vector2(128, 32)
+
+[node name="LandingPad" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_5x2we")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hxr3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w3ler")
+
+[node name="LandingZone" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandingZone"]
+shape = SubResource("RectangleShape2D_w3ler")
+
+[node name="RefuelLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "REFUELING"
+horizontal_alignment = 1

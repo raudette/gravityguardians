@@ -1,0 +1,10 @@
+<svg width="128" height="32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green landing pad with markings -->
+  <rect x="0" y="0" width="128" height="32" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <!-- Landing markers -->
+  <rect x="10" y="8" width="4" height="16" fill="#27ae60"/>
+  <rect x="30" y="8" width="4" height="16" fill="#27ae60"/>
+  <rect x="60" y="8" width="8" height="16" fill="#27ae60"/>
+  <rect x="94" y="8" width="4" height="16" fill="#27ae60"/>
+  <rect x="114" y="8" width="4" height="16" fill="#27ae60"/>
+</svg>

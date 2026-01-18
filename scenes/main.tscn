@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://4yn86rl4nlwo"]
+
+[ext_resource type="PackedScene" uid="uid://b4xvn1e6wh8fy" path="res://scenes/player/ship.tscn" id="1_qy7ex"]
+[ext_resource type="PackedScene" uid="uid://c5d2lvup8hc4q" path="res://scenes/environment/landing_pad.tscn" id="2_5wf8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(2000, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_left"]
+size = Vector2(50, 1200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_right"]
+size = Vector2(50, 1200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(200, 30)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(640, 695)
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="FloorPolygon" type="Polygon2D" parent="Terrain/Floor"]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-1000, -25, 1000, -25, 1000, 25, -1000, 25)
+
+[node name="WallLeft" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(-25, 360)
+shape = SubResource("RectangleShape2D_wall_left")
+
+[node name="WallLeftPolygon" type="Polygon2D" parent="Terrain/WallLeft"]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-25, -600, 25, -600, 25, 600, -25, 600)
+
+[node name="WallRight" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(1305, 360)
+shape = SubResource("RectangleShape2D_wall_right")
+
+[node name="WallRightPolygon" type="Polygon2D" parent="Terrain/WallRight"]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-25, -600, 25, -600, 25, 600, -25, 600)
+
+[node name="Platform1" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(400, 450)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform1Polygon" type="Polygon2D" parent="Terrain/Platform1"]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-100, -15, 100, -15, 100, 15, -100, 15)
+
+[node name="Platform2" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(880, 450)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform2Polygon" type="Polygon2D" parent="Terrain/Platform2"]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-100, -15, 100, -15, 100, 15, -100, 15)
+
+[node name="LandingPads" type="Node2D" parent="."]
+
+[node name="LandingPad1" parent="LandingPads" instance=ExtResource("2_5wf8h")]
+position = Vector2(200, 654)
+
+[node name="LandingPad2" parent="LandingPads" instance=ExtResource("2_5wf8h")]
+position = Vector2(1080, 654)
+
+[node name="LandingPad3" parent="LandingPads" instance=ExtResource("2_5wf8h")]
+position = Vector2(640, 418)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Ship1" parent="Players" instance=ExtResource("1_qy7ex")]
+position = Vector2(200, 600)
+
+[node name="Ship2" parent="Players" instance=ExtResource("1_qy7ex")]
+position = Vector2(1080, 600)
+player_id = 2
