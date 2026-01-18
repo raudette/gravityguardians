@@ -79,8 +79,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed(input_rotate_cw):
 		rotate_input += 1.0
 	
+	# Apply rotation using angular velocity (works with RigidBody2D physics)
 	if rotate_input != 0.0:
-		rotation += deg_to_rad(rotation_speed * rotate_input * delta)
+		angular_velocity = deg_to_rad(rotation_speed) * rotate_input
+	else:
+		angular_velocity = 0.0  # Stop rotation when no input
 	
 	# Handle thrust
 	var is_thrusting := false
