@@ -1,0 +1,146 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh7k5p8m3xr2w"]
+
+[ext_resource type="Script" uid="uid://jxghh74w8yar" path="res://scripts/ui/splash_screen.gd" id="1_splash"]
+
+[node name="SplashScreen" type="CanvasLayer"]
+script = ExtResource("1_splash")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 72
+text = "GRAVITY GUARDIANS"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="WinConditionLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 32
+text = "First to 5 Kills Wins"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ControlsContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Player1Controls" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ControlsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Player1Title" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player1Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+theme_override_font_sizes/font_size = 28
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="P1Thrust" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player1Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+theme_override_font_sizes/font_size = 20
+text = "W - Thrust"
+
+[node name="P1Left" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player1Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+theme_override_font_sizes/font_size = 20
+text = "A - Rotate Left"
+
+[node name="P1Right" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player1Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+theme_override_font_sizes/font_size = 20
+text = "D - Rotate Right"
+
+[node name="P1Shoot" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player1Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.298039, 0.235294, 1)
+theme_override_font_sizes/font_size = 20
+text = "SPACE - Shoot"
+
+[node name="Player2Controls" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ControlsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Player2Title" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player2Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.596078, 0.858824, 1)
+theme_override_font_sizes/font_size = 28
+text = "PLAYER 2"
+horizontal_alignment = 1
+
+[node name="P2Thrust" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player2Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.596078, 0.858824, 1)
+theme_override_font_sizes/font_size = 20
+text = "UP - Thrust"
+
+[node name="P2Left" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player2Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.596078, 0.858824, 1)
+theme_override_font_sizes/font_size = 20
+text = "LEFT - Rotate Left"
+
+[node name="P2Right" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player2Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.596078, 0.858824, 1)
+theme_override_font_sizes/font_size = 20
+text = "RIGHT - Rotate Right"
+
+[node name="P2Shoot" type="Label" parent="CenterContainer/VBoxContainer/ControlsContainer/Player2Controls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.596078, 0.858824, 1)
+theme_override_font_sizes/font_size = 20
+text = "NUMPAD 0 - Shoot"
+
+[node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="RestartLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 20
+text = "R - Restart Game"
+horizontal_alignment = 1
+
+[node name="Spacer4" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="PressAnyKeyLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Press any key to start"
+horizontal_alignment = 1
