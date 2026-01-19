@@ -8,6 +8,7 @@ class_name HUD
 # Node references
 @onready var player1_display: PlayerDisplay = $Panel/MarginContainer/HBoxContainer/Player1Display
 @onready var player2_display: PlayerDisplay = $Panel/MarginContainer/HBoxContainer/Player2Display
+@onready var notification_label: Label = $NotificationLabel
 
 
 func _ready() -> void:
@@ -30,11 +31,15 @@ func setup_player_displays() -> void:
 	
 	if ship1:
 		player1_display.set_player_ship(ship1)
+		# Connect to ship destroyed signal for notifications
+		ship1.ship_destroyed.connect(_on_ship_destroyed)
 	else:
 		push_warning("Ship 1 not found in GameState")
 	
 	if ship2:
 		player2_display.set_player_ship(ship2)
+		# Connect to ship destroyed signal for notifications
+		ship2.ship_destroyed.connect(_on_ship_destroyed)
 	else:
 		push_warning("Ship 2 not found in GameState")
 
@@ -54,3 +59,39 @@ func _on_ship_respawned(respawned_player_id: int, spawn_position: Vector2) -> vo
 		player2_display.set_player_ship(ship)
 	
 	print("HUD reconnected to respawned ship %d" % respawned_player_id)
+
+
+func show_notification(message: String, duration: float = 2.0) -> void:
+	"""Display a centered notification message"""
+	if not notification_label:
+		return
+	
+	notification_label.text = message
+	notification_label.visible = true
+	notification_label.modulate.a = 1.0
+	
+	# Fade out after duration
+	await get_tree().create_timer(duration).timeout
+	
+	# Animate fade out
+	var tween := create_tween()
+	tween.tween_property(notification_label, "modulate:a", 0.0, 0.5)
+	await tween.finished
+	
+	notification_label.visible = false
+
+
+func _on_ship_destroyed(victim_id: int, killer_id: int) -> void:
+	"""Show notification when a ship is destroyed"""
+	# Determine death cause
+	if victim_id == killer_id:
+		# Self-destruction (terrain collision)
+		show_notification("PLAYER %d CRASHED!" % victim_id, 2.0)
+	else:
+		# Check if it was fuel death by checking fuel level
+		var victim_ship = GameState.ships.get(victim_id)
+		if victim_ship and victim_ship.fuel <= 0.0:
+			show_notification("PLAYER %d OUT OF FUEL!\nPLAYER %d SCORES!" % [victim_id, killer_id], 2.5)
+		else:
+			# Bullet kill
+			show_notification("PLAYER %d DESTROYED!\nPLAYER %d SCORES!" % [victim_id, killer_id], 2.5)

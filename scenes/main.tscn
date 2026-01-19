@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://4yn86rl4nlwo"]
+[gd_scene load_steps=8 format=3 uid="uid://4yn86rl4nlwo"]
 
 [ext_resource type="PackedScene" uid="uid://b4xvn1e6wh8fy" path="res://scenes/player/ship.tscn" id="1_qy7ex"]
 [ext_resource type="PackedScene" uid="uid://c5d2lvup8hc4q" path="res://scenes/environment/landing_pad.tscn" id="2_5wf8h"]
-[ext_resource type="PackedScene" uid="uid://cj5m8vyn4xr1i" path="res://scenes/ui/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
 size = Vector2(2000, 50)
@@ -65,6 +65,14 @@ shape = SubResource("RectangleShape2D_platform")
 [node name="Platform2Polygon" type="Polygon2D" parent="Terrain/Platform2"]
 color = Color(0.5, 0.5, 0.5, 1)
 polygon = PackedVector2Array(-100, -15, 100, -15, 100, 15, -100, 15)
+
+[node name="Ceiling" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(640, -68)
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="CeilingPolygon" type="Polygon2D" parent="Terrain/Ceiling"]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-1000, -25, 1000, -25, 1000, 25, -1000, 25)
 
 [node name="LandingPads" type="Node2D" parent="."]
 

@@ -13,7 +13,7 @@ signal ship_destroyed(victim_id: int, killer_id: int)
 @export var player_id: int = 1  # 1 or 2
 @export var thrust_force: float = 1500.0
 @export var rotation_speed: float = 180.0  # degrees per second
-@export var max_fuel: float = 100.0
+@export var max_fuel: float = 200.0
 @export var fuel_consumption_rate: float = 10.0  # per second
 @export var shoot_cooldown: float = 0.4
 @export var max_velocity: float = 600.0
@@ -96,6 +96,13 @@ func _physics_process(delta: float) -> void:
 		# Consume fuel
 		fuel = max(0.0, fuel - fuel_consumption_rate * delta)
 		fuel_changed.emit(fuel, max_fuel)
+	
+	# Check for fuel depletion death
+	if fuel <= 0.0 and is_alive:
+		var opponent_id := get_opponent_id()
+		print("Player %d ran out of fuel! Player %d scores!" % [player_id, opponent_id])
+		die(opponent_id)  # Award kill to opponent
+		return  # Stop processing this frame
 	
 	# Visual thrust feedback
 	if thrust_particles:
@@ -241,3 +248,8 @@ func _on_ship_respawned(respawned_player_id: int, spawn_position: Vector2) -> vo
 func get_fuel_percentage() -> float:
 	"""Get fuel as percentage (0-100)"""
 	return (fuel / max_fuel) * 100.0
+
+
+func get_opponent_id() -> int:
+	"""Get the opposing player's ID (1→2, 2→1)"""
+	return 2 if player_id == 1 else 1
