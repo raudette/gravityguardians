@@ -181,8 +181,8 @@ func respawn(spawn_position: Vector2) -> void:
 	"""Respawn ship at given position"""
 	print("Player %d respawning at %s" % [player_id, spawn_position])
 	
-	# Reset state
-	global_position = spawn_position
+	# Reset state (use global_transform.origin for RigidBody2D)
+	global_transform.origin = spawn_position
 	rotation = 0
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0
