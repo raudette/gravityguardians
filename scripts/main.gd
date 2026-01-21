@@ -11,6 +11,7 @@ var ship2_initial_spawn: Vector2
 # Node references
 @onready var ship1: Ship = $Players/Ship1
 @onready var ship2: Ship = $Players/Ship2
+@onready var hud: HUD = $HUD
 
 
 func _ready() -> void:
@@ -36,6 +37,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func restart_game() -> void:
 	"""Soft reset - resets game state and respawns ships without reloading scene"""
 	print("=== GAME RESTART REQUESTED ===")
+	
+	# Hide game over screen
+	if hud:
+		hud.hide_game_over_screen()
 	
 	# Reset game state (kills, game over flag)
 	GameState.reset_game()

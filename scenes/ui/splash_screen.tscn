@@ -121,7 +121,7 @@ text = "RIGHT - Rotate Right"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.203922, 0.596078, 0.858824, 1)
 theme_override_font_sizes/font_size = 20
-text = "NUMPAD 0 - Shoot"
+text = "ENTER - Shoot"
 
 [node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
