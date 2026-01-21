@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://4yn86rl4nlwo"]
+[gd_scene load_steps=9 format=3 uid="uid://4yn86rl4nlwo"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="PackedScene" uid="uid://b4xvn1e6wh8fy" path="res://scenes/player/ship.tscn" id="1_qy7ex"]
 [ext_resource type="PackedScene" uid="uid://c5d2lvup8hc4q" path="res://scenes/environment/landing_pad.tscn" id="2_5wf8h"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
@@ -17,6 +18,7 @@ size = Vector2(50, 1200)
 size = Vector2(200, 30)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_main")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)

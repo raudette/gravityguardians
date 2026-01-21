@@ -18,6 +18,9 @@ var shooter_id: int = -1  # Which player shot this bullet
 
 
 func _ready() -> void:
+	# Add to bullets group for easy cleanup
+	add_to_group("bullets")
+	
 	# Start lifetime countdown
 	lifetime_timer.wait_time = lifetime
 	lifetime_timer.start()
